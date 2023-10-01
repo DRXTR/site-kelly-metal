@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start; /* align lists to the top */
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        #header {
+            background-color: rgba(128, 128, 128, 0.5);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 50px;
+            position: fixed; /* fix header at the top */
+            width: 100%;
+           
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .theme-button {
+            width: 50px;
+            height: 50px;
+        }
+        .list {
+            background-color: rgba(128, 128, 128, 0.5);
+            width: 30%;
+            padding: 20px;
+            margin-top: 80px; /* to avoid overlap with the header */
+            border-radius: 10px; /* for smooth border */
+        }
+        .list h2 {
+            text-align: center;
+        }
+        .list a {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+        .list img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .theme-button {
+            background-image: none;
+            background-color: transparent;
+            border-color: transparent;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <a href="#setlist">Set List</a> | 
+        <a href="#sobrenos">Sobre Nós</a> |
+        <button class="theme-button" onclick="toggleTheme()">Mudar Tema</button>
+    </div>
+
+    <div class="list">
+        <h2>METAL/ROCK</h2>
+        <a href="rock/Skillet.html"><img src="img_cantores/skillet.jpeg" alt="Cantor 1">skillet</a>
+        <a href="rock/SlipkNot.html"><img src="img_cantores/slipknoot.jpeg" alt="Cantor 2">SlipkNot</a>
+        <a href="rock/Guns.html"><img src="img_cantores/guns.jpeg" alt="Cantor 2">Guns'n Roses </a>
+        <a href="rock/Quiet.html"><img src="img_cantores/quietRiot.jpeg" alt="Cantor 2">Quiet Riot</a>
+        <a href="rock/metalica.html"><img src="img_cantores/metalica.jpeg" alt="Cantor 1">Metalica</a>
+        <a href="rock/ACDC.html"><img src="img_cantores/acdc.jpeg" alt="Cantor 2">ACDC</a>
+        <a href="rock/IronMaiden.html"><img src="img_cantores/ironM.jpeg" alt="Cantor 2">Iron Maiden </a>
+        <a href="rock/ozzy.html"><img src="img_cantores/ozzy.jpeg" alt="Cantor 1">Ozzy Osbourne</a>
+        <a href="rock/pearl.html"><img src="img_cantores/perlj.jpeg" alt="Cantor 2">Pearl Jam</a>
+        <a href="rock/muse.html"><img src="img_cantores/muse.jpeg" alt="Cantor 2">Muse</a>
+    </div>
+
+    <div class="list">
+        <h2>SERTANEJO</h2>
+        <a href="sertanejo/luan.html"><img src="img_cantores/luanS.jpeg.jpeg" alt="Cantor 3">Luan Santana</a>
+        <a href="sertanejo/HeJ.html"><img src="img_cantores/henrieJuli.jpeg" alt="Cantor 4">Henrique e Juliano</a>
+        <a href="sertanejo/MM.html"><img src="img_cantores/MM.jpeg" alt="Cantor 3">Marília Mendonça</a>
+        <a href="sertanejo/GL.html"><img src="img_cantores/GL.jpeg" alt="Cantor 4">Gusttavo Lima</a>
+        <a href="sertanejo/CeX.html"><img src="img_cantores/cex.jpeg" alt="Cantor 3">Chitãozinho e Xororó</a>
+        <a href="sertanejo/AC.html"><img src="img_cantores/AC.jpeg" alt="Cantor 4">Ana Castela</a>
+        <a href="sertanejo/JeM.html"><img src="img_cantores/JeM.jpeg" alt="Cantor 3">jorge e Mateus</a>
+        <a href="sertanejo/IeR.html"><img src="img_cantores/IeR.jpeg" alt="Cantor 4">israel e Rodolffo</a>
+        <a href="sertanejo/ZNeC.html"><img src="img_cantores/ZNeC.jpeg" alt="Cantor 3">Zé Neto e Cristiano</a>
+        <a href="sertanejo/BeM.html"><img src="img_cantores/BeM.jpeg" alt="Cantor 4">Bruno e Marrone</a>
+        
+    </div>
+
+    <div class="list">
+        <h2>TRAP</h2>
+        <a href="trap/wiu.html"><img src="img_cantores/wiu.jpeg" alt="Cantor 5">Wiu</a>
+        <a href="trap/matue.html"><img src="img_cantores/matue.jpeg" alt="Cantor 6">Matuê</a>
+        <a href="trap/teto.html"><img src="img_cantores/teto.jpeg" alt="Cantor 5">Teto</a>
+        <a href="trap/mcpoze.html"><img src="img_cantores/poze.jpeg" alt="Cantor 6">Mc Poze</a>
+        <a href="trap/domlaike.html"><img src="img_cantores/DL.jpeg" alt="Cantor 5">DomLaike</a>
+        <a href="trap/vulgofk.html"><img src="img_cantores/vfk.jpeg" alt="Cantor 6">Vulgo FK</a>
+        <a href="trap/mcryan.html"><img src="img_cantores/mcryan.jpeg" alt="Cantor 5">MC Ryan SP</a>
+        <a href="trap/mdchefe.html"><img src="img_cantores/MdC.jpeg" alt="Cantor 6">MD Chefe</a>
+        <a href="trap/oruam.html"><img src="img_cantores/oruam.jpeg" alt="Cantor 5">Oruam</a>
+        <a href="trap/igu.html"><img src="img_cantores/igu.jpeg" alt="Cantor 6">Igu</a>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            var body = document.body;
+            if (body.style.backgroundColor === "black") {
+                body.style.backgroundColor = "white";
+                body.style.color = "black";
+                var lists = document.getElementsByClassName('list');
+                for (var i = 0; i < lists.length; i++) {
+                    lists[i].style.backgroundColor = "white";
+                    lists[i].style.color = "black";
+                }
+                var headerLinks = document.querySelectorAll('#header a');
+                for (var i = 0; i < headerLinks.length; i++) {
+                    headerLinks[i].style.color = "black";
+                }
+                
+            } else {
+                body.style.backgroundColor = "black";
+                body.style.color = "white";
+                var lists = document.getElementsByClassName('list');
+                for (var i = 0; i < lists.length; i++) {
+                    lists[i].style.backgroundColor = "rgba(128,128,128,0.5)";
+                    lists[i].style.color = "white";
+                }
+                var headerLinks = document.querySelectorAll('#header a');
+                for (var i = 0; i < headerLinks.length; i++) {
+                    headerLinks[i].style.color = "white";
+                }
+                
+            }
+        }
+    </script>
+</body>
+</html>
+
