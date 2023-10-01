@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Impact&display=swap');
+
+        body {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: black;
+            color: white;
+            text-shadow: 2px 2px 4px #808080;
+            font-family: 'Impact', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .note {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url('RockSymbol.png');
+            background-size: cover;
+        }
+        img {
+            filter: invert(1);
+            transition: all 5s ease-in-out; /* Adicionado para a animação */
+        }
+        .play-button { /* Adicionado para o botão de play */
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            background-image: url();
+            color: #ffffff;
+            padding: 20px 40px;
+            border-radius: 5px;
+            cursor: pointer;
+
+            /* Adicionado para a animação de surgimento */
+            opacity: 0;
+            transition: opacity 2s ease-in-out; 
+        }
+        .settings { /* Adicionado para o ícone de configurações */
+            position: absolute;
+            right: 10px;
+            top: 10px;  
+        }
+        .settings img {
+          width: 30px; /* ajuste conforme necessário */
+          height: 30px; /* ajuste conforme necessário */
+        }
+        .sidebar {
+          position: fixed;
+          right: 0;
+          top: 0;
+          width: 0;
+          height: 100vh;
+          background-color: rgba(51,51,51,0.5); /* Cor cinza semi-transparente */
+          overflow-x: hidden;
+          transition: width .5s; /* Adicionado para a animação suave */
+          padding-top: 60px; 
+        }
+        .sidebar a {
+          padding: 8px 8px 8px 32px;
+          text-decoration:none ;
+          font-size :25px ;
+          color:#818181 ;
+          display:block ;
+          transition:.3s ;
+        }
+        .closebtn {
+          position:absolute ;
+          top :0 ;
+          right :25px ;
+          font-size :36px ;
+          margin-left :50px ;
+        }
+
+      
+
+    </style>
+</head>
+<body>
+    <img id="logo" src="Guitar_hero_new_logo.svg.png" alt="">
+    <a href="principal.html"><button class="play-button" id="playButton">Play</button> </a><!-- Botão de play adicionado -->
+    <div class="settings">
+        <img src="engrenagem.png" alt="Settings"> <!-- Ícone de configurações adicionado -->
+    </div>
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a> <!-- Botão de fechar adicionado -->
+      <a href="#">Sobre nós</a>
+      <!-- Adicione mais links conforme necessário -->
+    </div>
+
+    <div id="notes"></div>
+
+    <script>
+        var notes = [];
+        var colors = ['transparent'];
+
+        function createNote() {
+            var note = document.createElement('div');
+            note.className = 'note';
+            note.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+            note.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            notes.push(note);
+            document.getElementById('notes').appendChild(note);
+        }
+
+        function moveNotes() {
+            for (var i = 0; i < notes.length; i++) {
+                var note = notes[i];
+                note.style.top = (note.offsetTop + 3) + 'px';
+                if (note.offsetTop > window.innerHeight || note.offsetLeft < 0 || note.offsetLeft > window.innerWidth) {
+                    note.parentNode.removeChild(note);
+                    notes.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        setInterval(createNote, 1000);
+        setInterval(moveNotes, 10);
+
+        // Adicionado para mover a imagem e exibir o botão de play após a transição da imagem terminar
+        setTimeout(function() {
+          var logo = document.getElementById('logo');
+          logo.style.transform = 'translateX(-260px)';
+          logo.addEventListener('transitionend', function() {
+              var playButton = document.getElementById('playButton');
+              playButton.style.display = 'block';
+              setTimeout(function() {
+                  playButton.style.opacity = '1';
+              }, 100); // Pequeno atraso para garantir que o botão esteja visível antes da animação começar
+          });
+          
+      }, 10000);
+
+      // Adicionado para abrir a aba lateral ao clicar na engrenagem
+      document.querySelector('.settings img').addEventListener('click', function() {
+          document.getElementById("mySidebar").style.width = "250px";
+      });
+
+      // Adicionado para fechar a aba lateral ao clicar no botão de fechar
+      function closeNav() {
+          document.getElementById("mySidebar").style.width = "0";
+      }
+    </script>
+</body>
+</html>
